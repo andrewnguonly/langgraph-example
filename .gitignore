@@ -1,3 +1,7 @@
 .env
 .ipynb_checkpoints
 .langgraph-data
+.venv
+.langserve-data
+env
+.DS_Store
