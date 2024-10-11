@@ -1,4 +1,3 @@
-import time
 from typing import TypedDict, Annotated, Sequence, Literal
 
 from functools import lru_cache
@@ -46,9 +45,6 @@ def call_model(state, config):
     model_name = config.get('configurable', {}).get("model_name", "anthropic")
     model = _get_model(model_name)
     response = model.invoke(messages)
-
-    # sleep for 30 seconds
-    time.sleep(30)
 
     # We return a list, because this will get added to the existing list
     return {"messages": [response]}
