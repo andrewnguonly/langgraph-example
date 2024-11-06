@@ -42,7 +42,6 @@ def should_continue(state):
 
 # Define the function that calls the model
 def call_model(state, config):
-    time.sleep(305)
     messages = state["messages"]
     model_name = config.get('configurable', {}).get("model_name", "anthropic")
     model = _get_model(model_name)
