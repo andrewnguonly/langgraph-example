@@ -1,6 +1,8 @@
+import logging
 from typing import TypedDict, Annotated, Sequence, Literal
 
 import ddtrace
+import ddtrace.auto
 from functools import lru_cache
 from langchain_core.messages import BaseMessage
 from langchain_anthropic import ChatAnthropic
@@ -44,6 +46,7 @@ def should_continue(state):
 
 # Define the function that calls the model
 def call_model(state, config):
+    logging.info("Calling model...")
     messages = state["messages"]
     model_name = config.get('configurable', {}).get("model_name", "anthropic")
     model = _get_model(model_name)
