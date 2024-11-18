@@ -2,7 +2,6 @@ import logging
 from typing import TypedDict, Annotated, Sequence, Literal
 
 import ddtrace
-import ddtrace.auto
 from functools import lru_cache
 from langchain_core.messages import BaseMessage
 from langchain_anthropic import ChatAnthropic
