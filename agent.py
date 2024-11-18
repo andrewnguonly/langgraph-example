@@ -1,5 +1,6 @@
 from typing import TypedDict, Annotated, Sequence, Literal
 
+import ddtrace
 from functools import lru_cache
 from langchain_core.messages import BaseMessage
 from langchain_anthropic import ChatAnthropic
@@ -7,6 +8,8 @@ from langchain_openai import ChatOpenAI
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langgraph.prebuilt import ToolNode
 from langgraph.graph import StateGraph, END, add_messages
+
+ddtrace.patch(logging=True)
 
 tools = [TavilySearchResults(max_results=1)]
 

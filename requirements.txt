@@ -4,3 +4,4 @@ langchain_core
 tavily-python
 langchain_community
 langchain_openai
+ddtrace==2.16.2
