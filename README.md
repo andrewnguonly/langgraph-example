@@ -244,5 +244,3 @@ Part of LangGraph API includes a UI for interacting with created agents.
 After running `langgraph up` you can access this UI by going to [http://localhost:8124](http://localhost:8124). You will be taken to an interactive playground whereby you can visualize and then interact with the agent.
 
 ![](static/agent_ui.png)
-
-test
