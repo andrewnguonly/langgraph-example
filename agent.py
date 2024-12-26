@@ -26,6 +26,7 @@ def _get_model(model_name: str):
 class AgentState(TypedDict):
     messages: Annotated[Sequence[BaseMessage], add_messages]
     num_msgs: int
+    is_even: bool
 
 
 # Define the function that determines whether to continue or not
@@ -50,7 +51,7 @@ def call_model(state, config):
     num_msgs = len(messages) + 1
 
     # We return a list, because this will get added to the existing list
-    return {"messages": [response], "num_msgs": num_msgs}
+    return {"messages": [response], "num_msgs": num_msgs, "is_even": num_msgs % 2 == 0}
 
 
 # Define the function to execute tools
