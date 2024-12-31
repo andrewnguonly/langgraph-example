@@ -3,5 +3,6 @@
   "graphs": {
     "agent": "./agent.py:graph"
   },
-  "env": ".env"
+  "env": ".env",
+  "dockerfile_lines": ["RUN echo $ENV_VAR", "RUN echo $ENV_VAR"]
 }
