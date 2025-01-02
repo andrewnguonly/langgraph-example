@@ -4,5 +4,5 @@
     "agent": "./agent.py:graph"
   },
   "env": ".env",
-  "dockerfile_lines": ["ARG ENV_VAR", "RUN echo \"The value of ENV_VAR is $ENV_VAR\""]
+  "dockerfile_lines": ["RUN --mount=type=secret,id=ENV_VAR", "RUN echo \"$(cat /run/secrets/ENV_VAR)\""]
 }
