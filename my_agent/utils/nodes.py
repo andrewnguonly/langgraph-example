@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 
@@ -38,6 +39,9 @@ system_prompt = """Be a helpful assistant"""
 def call_model(state, config):
     creds_json = os.getenv("GOOGLE_CLOUD_CREDENTIALS_JSON")
     logging.info(f"GOOGLE_CLOUD_CREDENTIALS_JSON: {creds_json}")
+
+    creds_dict = json.loads(creds_json)
+    logging.info(f"GOOGLE_CLOUD_CREDENTIALS_JSON dict: {creds_dict}")
 
     messages = state["messages"]
     messages = [{"role": "system", "content": system_prompt}] + messages
