@@ -1,3 +1,6 @@
+import logging
+import os
+
 from functools import lru_cache
 from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
@@ -33,6 +36,9 @@ system_prompt = """Be a helpful assistant"""
 
 # Define the function that calls the model
 def call_model(state, config):
+    creds_json = os.getenv("GOOGLE_CLOUD_CREDENTIALS_JSON")
+    logging.info(f"GOOGLE_CLOUD_CREDENTIALS_JSON: {creds_json}")
+
     messages = state["messages"]
     messages = [{"role": "system", "content": system_prompt}] + messages
     model_name = config.get('configurable', {}).get("model_name", "anthropic")
