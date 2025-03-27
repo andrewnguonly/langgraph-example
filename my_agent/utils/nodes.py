@@ -41,7 +41,7 @@ def call_model(state, config):
 
     # stream JSON output
     chain = (model | JsonOutputParser())
-    response = chain.stream(messages)
+    response = chain.invoke(messages)
 
     # We return a list, because this will get added to the existing list
     return {"messages": [response]}
