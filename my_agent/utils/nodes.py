@@ -33,6 +33,7 @@ system_prompt = """Be a helpful assistant"""
 
 # Define the function that calls the model
 def call_model(state, config):
+    raise RuntimeError("This is a random exception!")
     messages = state["messages"]
     messages = [{"role": "system", "content": system_prompt}] + messages
     model_name = config.get('configurable', {}).get("model_name", "anthropic")
