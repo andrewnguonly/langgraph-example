@@ -1,4 +1,4 @@
-from typing import TypedDict, Literal
+from typing_extensions import TypedDict, Literal
 
 from langgraph.graph import StateGraph, END
 from my_agent.utils.nodes import call_model, should_continue, tool_node
