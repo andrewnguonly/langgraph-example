@@ -1,3 +1,5 @@
+import logging
+
 from functools import lru_cache
 from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
@@ -39,6 +41,7 @@ def call_model(state, config):
     model = _get_model(model_name)
     response = model.invoke(messages)
     # We return a list, because this will get added to the existing list
+    logging.info("hello world!")
     return {"messages": [response]}
 
 # Define the function to execute tools
