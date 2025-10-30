@@ -1,7 +1,7 @@
 from typing_extensions import TypedDict, Literal
 
 from langgraph.graph import StateGraph, END
-from my_agent.utils.nodes import call_model, should_continue, tool_node
+from my_agent.utils.nodes import call_model, should_continue, tool_node, wait
 from my_agent.utils.state import AgentState
 
 
@@ -50,3 +50,9 @@ workflow.add_edge("action", "agent")
 # This compiles it into a LangChain Runnable,
 # meaning you can use it as you would any other runnable
 graph = workflow.compile()
+
+workflow_2 = StateGraph(AgentState, config_schema=GraphConfig)
+workflow_2.add_node("wait", wait)
+workflow_2.add_edge("wait", END)
+workflow_2.set_entry_point("wait")
+wait_graph = workflow_2.compile()

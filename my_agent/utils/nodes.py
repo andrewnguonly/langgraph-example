@@ -1,4 +1,5 @@
 import logging
+import time
 
 from functools import lru_cache
 from langchain_anthropic import ChatAnthropic
@@ -46,3 +47,7 @@ def call_model(state, config):
 
 # Define the function to execute tools
 tool_node = ToolNode(tools)
+
+def wait(state, config):
+    time.sleep(5)
+    return {"messages": []}
