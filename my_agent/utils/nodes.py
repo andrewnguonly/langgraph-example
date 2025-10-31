@@ -49,5 +49,5 @@ def call_model(state, config):
 tool_node = ToolNode(tools)
 
 def wait(state, config):
-    time.sleep(5)
+    time.sleep(10)
     return {"messages": []}
